@@ -16,13 +16,13 @@ var BasicGame =
     SPAWN_ENEMY_DELAY: Phaser.Timer.SECOND,
     SPAWN_SHOOTER_DELAY: Phaser.Timer.SECOND * 3,
 
-    SHOT_DELAY: Phaser.Timer.SECOND * 0.1,
-    SHOOTER_SHOT_DELAY: Phaser.Timer.SECOND * 2,
-    BOSS_SHOT_DELAY: Phaser.Timer.SECOND,
+    SHOT_DELAY: Phaser.Timer.SECOND * 0.1, // org: 0.1
+    SHOOTER_SHOT_DELAY: Phaser.Timer.SECOND * 4, // org: 2
+    BOSS_SHOT_DELAY: Phaser.Timer.SECOND * 2, // org: 1
 
-    ENEMY_HEALTH: 2,
-    SHOOTER_HEALTH: 5,
-    BOSS_HEALTH: 500,
+    ENEMY_HEALTH: 1,
+    SHOOTER_HEALTH: 4,
+    BOSS_HEALTH: 200,
 
     BULLET_DAMAGE: 1,
     CRASH_DAMAGE: 5,
@@ -32,11 +32,11 @@ var BasicGame =
     BOSS_REWARD: 10000,
     POWERUP_REWARD: 100,
 
-    ENEMY_DROP_RATE: 0.3,
-    SHOOTER_DROP_RATE: 0.5,
+    ENEMY_DROP_RATE: 0.5, // org: 0.3
+    SHOOTER_DROP_RATE: 0.5, // org: 0.5
     BOSS_DROP_RATE: 0,
 
-    PLAYER_EXTRA_LIVES: 3,
+    PLAYER_EXTRA_LIVES: 5,
     PLAYER_GHOST_TIME: Phaser.Timer.SECOND * 3,
 
     INSTRUCTION_EXPIRE: Phaser.Timer.SECOND * 10,
@@ -48,29 +48,28 @@ BasicGame.Boot = function (game) {};
 BasicGame.Boot.prototype = 
 {
     init: function () {
-        G_log.innerHTML += "---- boot init <br/>";
         // unless the game support multi-touch, set this to 1
         this.input.maxPointers = 1;
+
         if (this.game.device.desktop) {
-            // desktop specific settings in here
+            this.scale.pageAlignHorizontally = true;
+            this.scale.pageAlignVertically = true;
         } else {
             // mobile setting
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.scale.setMinMax(480, 260, 1024, 768);
             this.scale.forceLandscape = true;
+            this.scale.pageAlignHorizontally = true;
+            this.scale.pageAlignVertically = true;
         }
-        this.scale.pageAlignHorizontally = true;
-        this.scale.pageAlignVertically = true;
     },
 
     preload: function () {
-        G_log.innerHTML += "---- boot preload <br/>";
         // load the assets required
         this.load.image('preloaderBar', 'assets/preloader-bar.png');
     },
 
     create: function () {
-        G_log.innerHTML += "---- boot create <br/>";
         this.state.start('Preloader');
     }
 

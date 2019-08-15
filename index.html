@@ -1,17 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>1942</title>
     <style>
         body {
             margin: 0;
             background: #333;
         }
+        #krlog {
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.4;
+            width: 360px;
+            height: 120px;
+        }
     </style>
-    <link rel="stylesheet" type="text/css" href="default.css" />
+    <script>
+        let W_speed = 0;
+        let W_dir = 0;
+        let W_fr = 0;
+    </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script src="sensor.js"></script>
     <script src="phaser-arcade-physics.js"></script>
     <script src="boot.js"></script>
     <script src="preloader.js"></script>
@@ -21,6 +35,6 @@
 </head>
 <body>
     <div id="gameContainer"></div>
-    <div id="dataLog"></div>
+    <div id="krlog"></div>
 </body>
 </html>

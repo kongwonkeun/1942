@@ -11,7 +11,11 @@ BasicGame.MainMenu.prototype =
     preload: function () {},
 
     create: function () {
-        this.add.sprite(0, 0, 'titlepage');
+        //---- kong ----
+        x = this.add.sprite(0, 0, 'titlepage');
+        r = this.game.width / 800;
+        x.scale.setTo(r, r);
+        //----
         this.loadingText = this.add.text(this.game.width/2, this.game.height/2 + 80, "press Z or Tap/Click game to start", { font: "20px monospace", fill: "#fff" });
         this.loadingText.anchor.setTo(0.5, 0.5);
         this.add.text(this.game.width/2, this.game.height - 90, "image assets Copyright (c) 2002 Ari Feldman", { font: "12px monospace", fill: "#fff", align: "center"}).anchor.setTo(0.5, 0.5);

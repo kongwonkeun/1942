@@ -254,7 +254,12 @@ BasicGame.Game.prototype =
         else if (this.cursors.down.isDown)  { this.player.body.velocity.y =  this.player.speed; }
         
         //---- kong ----
-        
+        window.W_fr++;
+        if      (window.W_dir > 15)    { this.player.body.velocity.x = -this.player.speed; }
+        else if (window.W_dir < 13)    { this.player.body.velocity.x =  this.player.speed; }
+        if      (window.W_speed > 300) { this.player.body.velocity.y = -this.player.speed; }
+        else if (window.W_speed < 100) { this.player.body.velocity.y =  this.player.speed; }
+        this.fire();
         //----
 
         if (this.input.activePointer.isDown && this.physics.arcade.distanceToPointer(this.player) > 15) {
