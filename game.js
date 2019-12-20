@@ -255,8 +255,8 @@ BasicGame.Game.prototype =
         
         //---- kong ----
         window.W_fr++;
-        if      (window.W_dir > 20)    { this.player.body.velocity.x = -this.player.speed; }
-        else if (window.W_dir < 18)    { this.player.body.velocity.x =  this.player.speed; }
+        if      (window.W_dir < 14)    { this.player.body.velocity.x = -this.player.speed; }
+        else if (window.W_dir > 16)    { this.player.body.velocity.x =  this.player.speed; }
         if      (window.W_speed > 300) { this.player.body.velocity.y = -this.player.speed; }
         else if (window.W_speed < 100) { this.player.body.velocity.y =  this.player.speed; }
         this.fire();
